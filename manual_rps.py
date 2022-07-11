@@ -11,7 +11,7 @@ class game:
 
     def get_user_choice(self) -> str:
         # this function is used to get the user's choice of rock, paper or scissors
-        user_choice = input("Please enter your choice:")
+        user_choice = input("Please enter your choice (rock, paper or scissors):")
         return user_choice
 
 
@@ -29,6 +29,15 @@ class game:
                 return "You win!"
             else:
                 return "You lose!"
+        elif computer_choice == 'scissors':
+            if user_choice == "rock":
+                return "You win!"
+            else:
+                return "You lose!"
+        else:
+            return "You have entered an invalid choice!"
+        
+
                     
             
         
