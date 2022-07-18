@@ -6,3 +6,6 @@
 ## Milestone 2
 - The dependencies for the project are installed in an environment called "my_env", making use of conda
 
+## Milstone 3
+- Making use of if else statements, the method that defines and displays the winner is implemented.
+- This function is also within the game class and therefore a method of that class.
