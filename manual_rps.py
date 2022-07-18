@@ -32,29 +32,30 @@ class game:
         return self.user_choice
 
 
-    def get_winner(self, computer_choice, user_choice) -> str:
+    def get_winner(self) -> str:
         """
         this function is used to get the winner of the game
         """
-        if computer_choice == user_choice:
+        if self.computer_choice == self.user_choice:
             return "It's a tie!"
-        elif computer_choice == 'rock':
-            if user_choice == 'paper':
+        elif self.computer_choice == 'rock':
+            if self.user_choice == 'paper':
                 return "You win!"
             else:
                 return "You lose!"
-        elif computer_choice == 'paper':
-            if user_choice == 'scissors':
+        elif self.computer_choice == 'paper':
+            if self.user_choice == 'scissors':
                 return "You win!"
             else:
                 return "You lose!"
-        elif computer_choice == 'scissors':
-            if user_choice == "rock":
+        elif self.computer_choice == 'scissors':
+            if self.user_choice == "rock":
                 return "You win!"
             else:
                 return "You lose!"
         else:
             return "You have entered an invalid choice!"
+    
         
 
       
