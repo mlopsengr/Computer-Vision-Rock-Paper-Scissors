@@ -73,7 +73,8 @@ def play(self):
     
         
 
-      
-            
-        
+if __name__ == '__main__':
+    play(computer_choice, user_choice)
+
+
         
