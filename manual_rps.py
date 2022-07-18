@@ -3,6 +3,11 @@ import random
 
 # this python code is created to build the model for the game rock paper scissors
 
+# for milestone 4 : you can creae user score, computer score, number of rounds/run, list of choice (rock, paper, scissors, nothing) in your init method
+# also create a get_prediction function and paste the keras model code, little tweaks are needed
+# you can use add max under np  to mapp the values 1,2,3,4 to rock, paper, scissors, nothing
+# you need to put a countdown timer to the game, so the game ends after a number of runs or time period.
+
 class game:
 
     def __init__(self, computer_choice, user_choice) -> None:
@@ -52,7 +57,8 @@ class game:
             return "You have entered an invalid choice!"
         
 
-                    
+
+# work in progress          
             
         
         
