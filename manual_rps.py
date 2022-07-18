@@ -15,6 +15,9 @@ class computer_vision:
         self.computer_choice = computer_choice
         self.user_choice = user_choice
 
+        computer_wins = 0
+        user_wins = 0
+
         pass
 
     def get_computer_choice(self) -> str:
