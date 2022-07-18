@@ -57,8 +57,7 @@ class game:
             return "You have entered an invalid choice!"
         
 
-
-# work in progress for milestone 4          
+      
             
         
         
