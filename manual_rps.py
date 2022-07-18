@@ -1,5 +1,8 @@
 import numpy as np
+import time
 import random
+import cv2
+from keras.models import load_model
 
 # this python code is created to build the model for the game rock paper scissors
 
@@ -24,11 +27,17 @@ class computer_vision:
         """
         this function is used to get the computer choice from rock, paper or scissors
         """
-        
+        prediction = self.prediction()
         self.computer_choice = random.choice(['rock', 'paper', 'scissors'])
         return self.computer_choice
 
         pass
+
+    def get_prediction(self):
+        model = load_model('keras_model.h5')
+    
+        pass
+
 
     def get_user_choice(self) -> str:
         """
@@ -40,10 +49,7 @@ class computer_vision:
 
         pass
 
-    def get_prediction(self):
-
-        pass
-
+   
 
 
     def get_winner(self) -> str:
@@ -51,25 +57,25 @@ class computer_vision:
         this function is used to get the winner of the game
         """
         if self.computer_choice == self.user_choice:
-            return "It's a tie!"
+            print( "It's a tie!")
         elif self.computer_choice == 'rock':
             if self.user_choice == 'paper':
-                return "You win!"
+                print(f"{self.user_choice} beats {self.computer_choice}, You win!")
             else:
-                return "You lose!"
+                print( "You lose!")
         elif self.computer_choice == 'paper':
             if self.user_choice == 'scissors':
-                return "You win!"
+                print("You win!")
             else:
-                return "You lose!"
+                print("You lose!")
         elif self.computer_choice == 'scissors':
             if self.user_choice == "rock":
-                return "You win!"
+                print("You win!")
             else:
-               return "You lose!"
+               print("You lose!")
         # no condition true
         else: 
-            return "You have entered an invalid input"
+            print( "You have entered an invalid input")
 
         pass
 
