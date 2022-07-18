@@ -8,7 +8,7 @@ import random
 # you can use add max under np  to mapp the values 1,2,3,4 to rock, paper, scissors, nothing
 # you need to put a countdown timer to the game, so the game ends after a number of runs or time period.
 
-class game:
+class computer_vision:
 
     def __init__(self, computer_choice, user_choice) -> None:
         
@@ -65,6 +65,8 @@ class game:
 
         pass
 
+def play(self):
+    
         
             
     
