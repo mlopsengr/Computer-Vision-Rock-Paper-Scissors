@@ -67,6 +67,7 @@ class computer_vision:
 
 def play(self):
     
+    game = computer_vision(computer_choice, user_choice)
         
             
     
