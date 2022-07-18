@@ -58,7 +58,7 @@ class game:
         
 
 
-# work in progress          
+# work in progress for milestone 4          
             
         
         
