@@ -15,6 +15,8 @@ class game:
         self.computer_choice = computer_choice
         self.user_choice = user_choice
 
+        pass
+
     def get_computer_choice(self) -> str:
         """
         this function is used to get the computer choice from rock, paper or scissors
@@ -23,6 +25,8 @@ class game:
         self.computer_choice = random.choice(['rock', 'paper', 'scissors'])
         return self.computer_choice
 
+        pass
+
     def get_user_choice(self) -> str:
         """
         this function is used to get the user's choice of rock, paper or scissors
@@ -30,6 +34,8 @@ class game:
         self.user_choice = input("Please enter your choice (rock, paper or scissors):")
 
         return self.user_choice
+
+        pass
 
 
     def get_winner(self) -> str:
@@ -52,9 +58,15 @@ class game:
             if self.user_choice == "rock":
                 return "You win!"
             else:
-                return "You lose!"
-        else:
-            return "You have entered an invalid choice!"
+               return "You lose!"
+        # no condition true
+        else: 
+            return "You have entered an invalid input"
+
+        pass
+
+        
+            
     
         
 
