@@ -6,6 +6,7 @@
 ## Milestone 2
 - The dependencies for the project are installed in an environment called "my_env", making use of conda
 
-## Milstone 3
+## Milestone 3
+- THe functions that get the computer choice and user choice (rock, paper scissors or nothing) are created, named get_computer_choice and get_user_choice respectively
 - Making use of if else statements, the method that defines and displays the winner is implemented.
 - This function is also within the game class and therefore a method of that class.
