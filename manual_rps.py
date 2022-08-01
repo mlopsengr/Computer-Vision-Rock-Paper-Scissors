@@ -36,7 +36,7 @@ class computer_vision:
 
         pass
 
-    def get_prediction(self):
+    #def get_prediction(self):
         model = load_model('keras_model.h5')
     
         pass
@@ -82,17 +82,18 @@ class computer_vision:
 
         pass
 
-def play(computer_choice, user_choice):
+def play():
     """
     this function is used to play the game
     """
-    computer_choice = computer_vision.get_computer_choice()
-    user_choice = computer_vision.get_user_choice()
-    computer_vision.get_winner()
+    game = computer_vision(computer_choice, user_choice, no_rounds = 2, choice_list = ['rock', 'paper', 'scissors','nothing'])
+    computer_choice = game.get_computer_choice()
+    user_choice = game.get_user_choice()
+    game.get_winner()
     pass
 
     
-    game = computer_vision(self.computer_choice, self.user_choice, self.no_rounds, self.choice_list)
+    
     game.get_computer_choice()
     game.get_user_choice()
     game.get_winner()
@@ -103,7 +104,8 @@ def play(computer_choice, user_choice):
 
 if __name__ == '__main__':
     choice_list = ['rock', 'paper', 'scissors','nothing']
-    play(computer_choice, user_choice)
+
+    play()
 
 
         
