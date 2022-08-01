@@ -13,10 +13,13 @@ from keras.models import load_model
 
 class computer_vision:
 
-    def __init__(self, computer_choice, user_choice) -> None:
+    def __init__(self, computer_choice, user_choice, no_rounds, choice_list) -> None:
         
         self.computer_choice = computer_choice
         self.user_choice = user_choice
+        self.no_rounds = no_rounds
+        self.choice_list = choice_list
+        self.choice_list = ['rock', 'paper', 'scissors','nothing']
 
         computer_wins = 0
         user_wins = 0
@@ -80,8 +83,9 @@ class computer_vision:
         pass
 
 def play(self):
+
     
-    game = computer_vision(computer_choice, user_choice)
+    game = computer_vision(self.computer_choice, self.user_choice, self.no_rounds, self.choice_list)
         
             
     
