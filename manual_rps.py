@@ -13,7 +13,7 @@ from keras.models import load_model
 
 class computer_vision:
 
-    def __init__(self, computer_choice, user_choice, no_rounds, choice_list) -> None:
+    def __init__(self, computer_choice, user_choice, no_rounds, choice_list):
         
         self.computer_choice = computer_choice
         self.user_choice = user_choice
@@ -26,7 +26,7 @@ class computer_vision:
 
         pass
 
-    def get_computer_choice(self) -> str:
+    def get_computer_choice(self):
         """
         this function is used to get the computer choice from rock, paper or scissors
         """
@@ -42,7 +42,7 @@ class computer_vision:
         pass
 
 
-    def get_user_choice(self) -> str:
+    def get_user_choice(self):
         """
         this function is used to get the user's choice of rock, paper or scissors
         """
@@ -55,7 +55,7 @@ class computer_vision:
    
 
 
-    def get_winner(self) -> str:
+    def get_winner(self):
         """
         this function is used to get the winner of the game
         """
