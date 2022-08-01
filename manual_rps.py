@@ -19,7 +19,7 @@ class computer_vision:
         self.user_choice = user_choice
         self.no_rounds = no_rounds
         self.choice_list = choice_list
-        self.choice_list = ['rock', 'paper', 'scissors','nothing']
+        
 
         computer_wins = 0
         user_wins = 0
@@ -30,7 +30,7 @@ class computer_vision:
         """
         this function is used to get the computer choice from rock, paper or scissors
         """
-        prediction = self.prediction()
+        #prediction = self.prediction()
         self.computer_choice = random.choice(['rock', 'paper', 'scissors'])
         return self.computer_choice
 
@@ -82,16 +82,27 @@ class computer_vision:
 
         pass
 
-def play(self):
+def play(computer_choice, user_choice):
+    """
+    this function is used to play the game
+    """
+    computer_choice = computer_vision.get_computer_choice()
+    user_choice = computer_vision.get_user_choice()
+    computer_vision.get_winner()
+    pass
 
     
     game = computer_vision(self.computer_choice, self.user_choice, self.no_rounds, self.choice_list)
+    game.get_computer_choice()
+    game.get_user_choice()
+    game.get_winner()
         
             
     
         
 
 if __name__ == '__main__':
+    choice_list = ['rock', 'paper', 'scissors','nothing']
     play(computer_choice, user_choice)
 
 
