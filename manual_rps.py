@@ -21,8 +21,8 @@ class computer_vision:
         self.choice_list = choice_list
         
 
-        computer_wins = 0
-        user_wins = 0
+        #computer_wins = 0
+        #user_wins = 0
 
         pass
 
@@ -32,14 +32,13 @@ class computer_vision:
         """
         #prediction = self.prediction()
         self.computer_choice = random.choice(['rock', 'paper', 'scissors'])
-        return self.computer_choice
 
         pass
 
     #def get_prediction(self):
-        model = load_model('keras_model.h5')
+        #model = load_model('keras_model.h5')
     
-        pass
+        #pass
 
 
     def get_user_choice(self):
@@ -47,8 +46,6 @@ class computer_vision:
         this function is used to get the user's choice of rock, paper or scissors
         """
         self.user_choice = input("Please enter your choice (rock, paper or scissors):")
-
-        return self.user_choice
 
         pass
 
@@ -65,47 +62,49 @@ class computer_vision:
             if self.user_choice == 'paper':
                 print(f"{self.user_choice} beats {self.computer_choice}, You win!")
             else:
-                print( "You lose!")
+                print(f"{self.computer_choice} beats {self.user_choice}, You lost!")
         elif self.computer_choice == 'paper':
             if self.user_choice == 'scissors':
-                print("You win!")
+                print(f"{self.user_choice} beats {self.computer_choice}, You win!")
             else:
-                print("You lose!")
+                print(f"{self.computer_choice} beats {self.user_choice}, You lost")
         elif self.computer_choice == 'scissors':
             if self.user_choice == "rock":
-                print("You win!")
+                print(f"{self.user_choice} beats {self.computer_choice}, You win!")
             else:
-               print("You lose!")
+               print(f"{self.computer_choice} beats {self.user_choice}, You lost!")
         # no condition true
         else: 
             print( "You have entered an invalid input")
 
         pass
 
-def play():
+def play(computer_choice, user_choice, no_rounds, choice_list):
     """
     this function is used to play the game
     """
-    game = computer_vision(computer_choice, user_choice, no_rounds = 2, choice_list = ['rock', 'paper', 'scissors','nothing'])
+    no_rounds = 5
+    choice_list = ['rock', 'paper', 'scissors','nothing']
+    game = computer_vision(computer_choice, user_choice, no_rounds, choice_list )
     computer_choice = game.get_computer_choice()
     user_choice = game.get_user_choice()
     game.get_winner()
+
     pass
 
-    
-    
-    game.get_computer_choice()
-    game.get_user_choice()
-    game.get_winner()
         
             
-    
-        
+  
 
 if __name__ == '__main__':
     choice_list = ['rock', 'paper', 'scissors','nothing']
-
-    play()
-
+    no_rounds = 5
+    computer_choice = ''
+    user_choice = ''
+    for i in range(no_rounds):
+        play(computer_choice, user_choice, no_rounds, choice_list)
+        time.sleep(1) # delay for 1 second
+        print("\n")
+    
 
         
