@@ -14,13 +14,12 @@ from keras.models import load_model
 
 class computer_vision:
 
-    def __init__(self, computer_choice, user_choice, user_entry, no_rounds, choice_list):
+    def __init__(self):
         
         self.computer_choice = computer_choice
         self.user_choice = user_choice
         self.no_rounds = no_rounds
         self.choice_list = choice_list
-        self.user_entry = user_entry
 
         #computer_wins = 0
         #user_wins = 0
@@ -41,6 +40,7 @@ class computer_vision:
         cap = cv2.VideoCapture(0)
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         
+        self.user_entry = input("Please enter your choice (rock, paper or scissors):")
 
         while True: 
             ret, frame = cap.read()
@@ -51,12 +51,11 @@ class computer_vision:
             prediction = model.predict(data)
 
             # user choice should be gotten from prediction
-            self.user_entry = np.argmax(prediction)
-            return self.user_entry
+            
+            return np.argmax(prediction)
 
             cv2.imshow('frame', frame)
             # Press q to close the window
-            print(self.user_entry)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
             
@@ -72,17 +71,11 @@ class computer_vision:
         """
         this function is used to get the user's choice of rock, paper or scissors from prediction function
         """
-        self.user_choice = self.user_entry
-        
-
-
-       
-
+        self.user_choice = self.get_prediction()
+    
         pass
 
    
-
-
     def get_winner(self):
         """
         this function is used to get the winner of the game
@@ -110,13 +103,15 @@ class computer_vision:
 
         pass
 
-def play(computer_choice, user_choice, no_rounds, choice_list):
+def play(choice_list):
     """
     this function is used to play the game
     """
-    no_rounds = 5
+    
     choice_list = ['rock', 'paper', 'scissors','nothing']
-    game = computer_vision(computer_choice, user_choice, user_entry, no_rounds, choice_list)
+    no_rounds = 5
+    
+    game = computer_vision()
     computer_choice = game.get_computer_choice()
     user_choice = game.get_user_choice()
     game.get_winner()
@@ -133,8 +128,8 @@ if __name__ == '__main__':
     computer_choice = ''
     user_choice = ''
     for i in range(no_rounds):
-        play(computer_choice, user_choice, no_rounds, choice_list)
-        time.sleep(1) # delay for 1 second
+        play(choice_list)
+        cv2.waitkey(2) # delay for 2 milliseconds
         print("\n")
     
 
