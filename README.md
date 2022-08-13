@@ -5,7 +5,7 @@
 
 ## Milestone 2
 - The dependencies for the project are installed in an environment called "my_env", making use of conda.
-- Extra steps are required for apple M1/M2 laptops to enable tensorflow to run.  The steps in [here](https://www.mrdbourke.com/setup-apple-m1-pro-and-m1-max-for-machine-learning-and-data-science/)
+- Extra steps are required for apple M1/M2 laptops to enable tensorflow to run.  The steps [here](https://www.mrdbourke.com/setup-apple-m1-pro-and-m1-max-for-machine-learning-and-data-science/) are followed.
 
 ## Milestone 3
 - The functions that get the computer choice and user choice (rock, paper scissors or nothing) are created, named get_computer_choice and get_user_choice respectively
