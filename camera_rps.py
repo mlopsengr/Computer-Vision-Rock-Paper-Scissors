@@ -19,10 +19,11 @@ class computer_vision:
         
         self.computer_choice = computer_choice
         self.user_choice = user_choice
-        self.no_rounds = no_rounds
+        self.computer_wins = 0
+        self.user_wins = 0
+       
         self.choice_list = choice_list
-        self.user_score = 0
-        self.computer_score = 0
+        
 
         #computer_wins = 0
         #user_wins = 0
@@ -43,7 +44,8 @@ class computer_vision:
         cap = cv2.VideoCapture(0)
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         
-        self.user_entry = input("Please enter your choice (rock, paper or scissors):")
+        self.user_entry = input("Please show your choice by hand (rock, paper or scissors) and press enter to continue:")
+        
 
         while True: 
             ret, frame = cap.read()
@@ -94,43 +96,45 @@ class computer_vision:
         pass
 
    
-    def get_winner(self):
+    def get_winner(self, computer_wins, user_wins):
         """
         this function is used to get the winner of the game
         """
-        
+        self.computer_wins = computer_wins
+        self.user_wins = user_wins
 
         if self.computer_choice == self.user_choice:
             print( "It's a tie!")
         elif self.computer_choice == 'rock':
             if self.user_choice == 'paper':
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
-                self.user_score += 1
+                self.user_wins += 1
                
             else:
-                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")   
-                self.computer_score += 1
+                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!") 
+                self.computer_wins += 1
                
 
         elif self.computer_choice == 'paper':
             if self.user_choice == 'scissors':
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
-                self.user_score += 1
+                self.user_wins += 1
              
             else:
                 print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
-                self.computer_score += 1
+                self.computer_wins += 1
                 
 
         elif self.computer_choice == 'scissors':
             if self.user_choice == "rock":
 
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
-                self.user_score += 1
+                self.user_wins += 1
+                
                 
             else:
                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
-               self.computer_score += 1
+               self.computer_wins += 1
                
         # no condition true
         else: 
@@ -149,10 +153,18 @@ def play(choice_list):
     """
     
     game = computer_vision()
-    game.get_computer_choice()
-    game.get_user_choice()
-    game.get_winner()
+    # making sure the game runs till either user or computer gets 3 winas
+    #while game.user_wins < 3 and game.computer_wins < 3:
+    for i in range(3):
+        game.get_computer_choice()
+        game.get_user_choice()
+        game.get_winner(0,0)
 
+        print(f"User's score is {game.user_wins} and computer's score is {game.computer_wins}")
+        print("\n")
+        time.sleep(1)
+        pass
+    
    
 
 
@@ -164,18 +176,13 @@ def play(choice_list):
 
 if __name__ == '__main__':
     choice_list = ['rock', 'paper', 'scissors','nothing']
-    no_rounds = 5
+  
     computer_choice = ''
     user_choice = ''
-    for i in range(no_rounds):
-        play(choice_list)
-        # delay for 2 milliseconds
-        time.time()
-        # destroy all the windows
-        cv2.destroyAllWindows()
-        time.time()
 
-        print("\n")
+    play(choice_list)
+   
+
 
     
 
