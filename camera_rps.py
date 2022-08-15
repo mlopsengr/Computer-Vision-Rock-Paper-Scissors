@@ -21,6 +21,8 @@ class computer_vision:
         self.user_choice = user_choice
         self.no_rounds = no_rounds
         self.choice_list = choice_list
+        self.user_score = 0
+        self.computer_score = 0
 
         #computer_wins = 0
         #user_wins = 0
@@ -76,12 +78,12 @@ class computer_vision:
         
         self.user_choice = self.get_prediction()
 
-        if self.user_choice == 1:
+        if self.user_choice == 0:
             self.user_choice = 'rock'
+        elif self.user_choice == 1:
+            self.user_choice = 'paper'
         elif self.user_choice == 2:
             self.user_choice = 'scissors'
-        elif self.user_choice == 3:
-            self.user_choice = 'paper'
         else:
             self.user_choice = 'nothing'
             
@@ -96,8 +98,7 @@ class computer_vision:
         """
         this function is used to get the winner of the game
         """
-        self.user_score = 0
-        self.computer_score = 0
+        
 
         if self.computer_choice == self.user_choice:
             print( "It's a tie!")
@@ -105,37 +106,42 @@ class computer_vision:
             if self.user_choice == 'paper':
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
                 self.user_score += 1
+               
             else:
                 print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")   
                 self.computer_score += 1
+               
 
         elif self.computer_choice == 'paper':
             if self.user_choice == 'scissors':
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
                 self.user_score += 1
+             
             else:
                 print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
                 self.computer_score += 1
+                
 
         elif self.computer_choice == 'scissors':
             if self.user_choice == "rock":
-                
+
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
                 self.user_score += 1
+                
             else:
                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
                self.computer_score += 1
+               
         # no condition true
         else: 
             print( "You have entered an invalid input")
 
-      
-        if self.user_score > self.computer_score:
-            print("You won the game!")
-        elif self.user_score < self.computer_score:
-            print("You lost the game!")
-
+        
         pass
+
+      
+      
+        
 
 def play(choice_list):
     """
@@ -146,6 +152,9 @@ def play(choice_list):
     game.get_computer_choice()
     game.get_user_choice()
     game.get_winner()
+
+   
+
 
     pass
 
@@ -161,11 +170,13 @@ if __name__ == '__main__':
     for i in range(no_rounds):
         play(choice_list)
         # delay for 2 milliseconds
-        time.sleep(0.2)
+        time.time()
         # destroy all the windows
         cv2.destroyAllWindows()
-        time.sleep(1)
+        time.time()
+
         print("\n")
+
     
 
         
