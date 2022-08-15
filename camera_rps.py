@@ -5,6 +5,7 @@ import random
 import cv2
 from keras.models import load_model
 
+
 # this python code is created to build the model for the game rock paper scissors
 
 # for milestone 4 : you can creae user score, computer score, number of rounds/run, list of choice (rock, paper, scissors, nothing) in your init method
@@ -71,7 +72,22 @@ class computer_vision:
         """
         this function is used to get the user's choice of rock, paper or scissors from prediction function
         """
+        # maapping the aregmax values to rock, paper, scissors and nothing
+        
         self.user_choice = self.get_prediction()
+
+        if self.user_choice == 1:
+            self.user_choice = 'rock'
+        elif self.user_choice == 2:
+            self.user_choice = 'scissors'
+        elif self.user_choice == 3:
+            self.user_choice = 'paper'
+        else:
+            self.user_choice = 'nothing'
+            
+         
+
+        
     
         pass
 
@@ -80,26 +96,44 @@ class computer_vision:
         """
         this function is used to get the winner of the game
         """
+        self.user_score = 0
+        self.computer_score = 0
+
         if self.computer_choice == self.user_choice:
             print( "It's a tie!")
         elif self.computer_choice == 'rock':
             if self.user_choice == 'paper':
-                print(f"{self.user_choice} beats {self.computer_choice}, You win!")
+                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
+                self.user_score += 1
             else:
-                print(f"{self.computer_choice} beats {self.user_choice}, You lost!")
+                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")   
+                self.computer_score += 1
+
         elif self.computer_choice == 'paper':
             if self.user_choice == 'scissors':
-                print(f"{self.user_choice} beats {self.computer_choice}, You win!")
+                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
+                self.user_score += 1
             else:
-                print(f"{self.computer_choice} beats {self.user_choice}, You lost")
+                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
+                self.computer_score += 1
+
         elif self.computer_choice == 'scissors':
             if self.user_choice == "rock":
-                print(f"{self.user_choice} beats {self.computer_choice}, You win!")
+                
+                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
+                self.user_score += 1
             else:
-               print(f"{self.computer_choice} beats {self.user_choice}, You lost!")
+               print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
+               self.computer_score += 1
         # no condition true
         else: 
             print( "You have entered an invalid input")
+
+      
+        if self.user_score > self.computer_score:
+            print("You won the game!")
+        elif self.user_score < self.computer_score:
+            print("You lost the game!")
 
         pass
 
@@ -108,12 +142,9 @@ def play(choice_list):
     this function is used to play the game
     """
     
-    choice_list = ['rock', 'paper', 'scissors','nothing']
-    no_rounds = 5
-    
     game = computer_vision()
-    computer_choice = game.get_computer_choice()
-    user_choice = game.get_user_choice()
+    game.get_computer_choice()
+    game.get_user_choice()
     game.get_winner()
 
     pass
@@ -129,7 +160,11 @@ if __name__ == '__main__':
     user_choice = ''
     for i in range(no_rounds):
         play(choice_list)
-        cv2.waitkey(2) # delay for 2 milliseconds
+        # delay for 2 milliseconds
+        time.sleep(0.2)
+        # destroy all the windows
+        cv2.destroyAllWindows()
+        time.sleep(1)
         print("\n")
     
 
