@@ -190,10 +190,6 @@ def play(choice_list):
 
 if __name__ == '__main__':
     choice_list = ['rock', 'paper', 'scissors','nothing']
-  
-    computer_choice = ''
-    user_choice = ''
-
     play(choice_list)
    
 
