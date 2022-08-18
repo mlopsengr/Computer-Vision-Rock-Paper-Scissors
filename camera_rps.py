@@ -15,14 +15,14 @@ from keras.models import load_model
 
 class computer_vision:
 
-    def __init__(self):
+    def __init__(self,computer_wins = 0, user_wins = 0):
         
         self.computer_choice = computer_choice
         self.user_choice = user_choice
-        self.computer_wins = 0
-        self.user_wins = 0
-       
         self.choice_list = choice_list
+        self.computer_wins = computer_wins
+        self.user_wins = user_wins
+       
         
 
         #computer_wins = 0
@@ -96,52 +96,56 @@ class computer_vision:
         pass
 
    
-    def get_winner(self, computer_wins, user_wins):
+    def get_winner(self):
         """
         this function is used to get the winner of the game
         """
-        self.computer_wins = computer_wins
-        self.user_wins = user_wins
+        
 
         if self.computer_choice == self.user_choice:
             print( "It's a tie!")
         elif self.computer_choice == 'rock':
             if self.user_choice == 'paper':
+                self.user_wins += 1 
                 print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
-                self.user_wins += 1
+              
                
             else:
-                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!") 
                 self.computer_wins += 1
+                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!") 
+                
                
 
         elif self.computer_choice == 'paper':
             if self.user_choice == 'scissors':
-                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
                 self.user_wins += 1
+                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
+                
              
             else:
-                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
                 self.computer_wins += 1
+                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
+                
                 
 
         elif self.computer_choice == 'scissors':
             if self.user_choice == "rock":
-
-                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
                 self.user_wins += 1
+                print(f"Your {self.user_choice} beats computer's {self.computer_choice}, You won this round!")
+                
                 
                 
             else:
-               print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
-               self.computer_wins += 1
+                self.computer_wins += 1
+                print(f"Computer's {self.computer_choice} beats your {self.user_choice}, You lost this round!")
+               
                
         # no condition true
         else: 
             print( "You have entered an invalid input")
 
         
-        pass
+        return self.computer_wins, self.user_wins
 
       
       
@@ -152,23 +156,33 @@ def play(choice_list):
     this function is used to play the game
     """
     
-    game = computer_vision()
+    game = computer_vision(computer_wins=0, user_wins=0)
     # making sure the game runs till either user or computer gets 3 winas
-    #while game.user_wins < 3 and game.computer_wins < 3:
-    for i in range(3):
-        game.get_computer_choice()
-        game.get_user_choice()
-        game.get_winner(0,0)
+    #while game.user_wins < 3 and game.computer_wins < 3::
+ 
 
-        print(f"User's score is {game.user_wins} and computer's score is {game.computer_wins}")
-        print("\n")
-        time.sleep(1)
-        pass
-    
    
+    game.get_winner()
+    while game.user_wins < 3 and game.computer_wins < 3: 
+        game.get_computer_choice()
+        game.get_user_choice()  
+        game.get_winner()    
+        if game.user_wins == 3:
+            print("You have won the game")
+            break
+        elif game.computer_wins == 3:
+            print("Computer has won the game")
+            break
+        else:
+            continue
+    
 
-
+        
+    print("\n")
+    time.sleep(1)
+    print(f"User's score is {game.user_wins} and computer's score is {game.computer_wins}")
     pass
+
 
         
             
