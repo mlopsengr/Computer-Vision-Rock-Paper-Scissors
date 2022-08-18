@@ -17,8 +17,8 @@ class computer_vision:
 
     def __init__(self,computer_wins = 0, user_wins = 0):
         
-        self.computer_choice = computer_choice
-        self.user_choice = user_choice
+        self.computer_choice = ''
+        self.user_choice = ''
         self.choice_list = choice_list
         self.computer_wins = computer_wins
         self.user_wins = user_wins
