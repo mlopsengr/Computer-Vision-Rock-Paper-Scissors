@@ -15,6 +15,9 @@
 ## Milestone 4
 - An instance of the computer vision class is created, called "game"
 - Then a function called "play" is created, which calls the methods of the class to get the computer choice and the user choice, and then calls the method that defines and displays the winner when called.
+
+
+## Milestone 5
 - Two varibales are added to the instance of the class : computer_wins and the user_wins, each set to 0.
 - A function named "get_winner" is created, which is used to determine the winner of the game. It makes use of if else statements to determine the winner of the game making use of the computer choice and user choice.
 - The get_winner function returns the computer and user wins.
@@ -24,6 +27,3 @@
     game.get_winner()
     while game.user_wins < 3 and game.computer_wins < 3: 
 ```
-
-## Milestone 5
-
