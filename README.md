@@ -2,6 +2,7 @@
 ## Milestone 1
 - An image project model for classifying four different classes "Rock", "paper", "Scissors", and "Nothing" using a "Teachable-Machine", an open source image model creation site.
 - The model is downloaded, which includes two files "keras_model.h5" and "labels.txt", the former containing the structure and parameters of the deep learning model built and the later housing information on the labels which are the classes the model was built to identify.
+- The version of this project that makes used of open_cv is the [camera_rps.py](https://github.com/tobsiee/Computer-Vision-Rock-Paper-Scissors/blob/main/camera_rps.py) while the [manual_rps.py](https://github.com/tobsiee/Computer-Vision-Rock-Paper-Scissors/blob/main/manual_rps.py) collects the user choice manually.
 
 ## Milestone 2
 - The dependencies for the project are installed in an environment called "cv_env", making use of conda.
@@ -15,6 +16,7 @@
 ## Milestone 4
 - An instance of the computer vision class is created, called "game"
 - Then a function called "play" is created, which calls the methods of the class to get the computer choice and the user choice, and then calls the method that defines and displays the winner when called.
+- To get the user_choice, using the camera,a get_predicton function is created that utilises open_cv framework for capturing the user input.
 
 
 ## Milestone 5
