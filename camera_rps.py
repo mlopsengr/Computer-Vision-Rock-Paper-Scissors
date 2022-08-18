@@ -22,12 +22,6 @@ class computer_vision:
         self.choice_list = choice_list
         self.computer_wins = computer_wins
         self.user_wins = user_wins
-       
-        
-
-        #computer_wins = 0
-        #user_wins = 0
-
         pass
 
     def get_computer_choice(self):
@@ -88,10 +82,6 @@ class computer_vision:
             self.user_choice = 'scissors'
         else:
             self.user_choice = 'nothing'
-            
-         
-
-        
     
         pass
 
@@ -148,20 +138,13 @@ class computer_vision:
         return self.computer_wins, self.user_wins
 
       
-      
-        
-
+    
 def play(choice_list):
     """
     this function is used to play the game
     """
     
     game = computer_vision(computer_wins=0, user_wins=0)
-    # making sure the game runs till either user or computer gets 3 winas
-    #while game.user_wins < 3 and game.computer_wins < 3::
- 
-
-   
     game.get_winner()
     while game.user_wins < 3 and game.computer_wins < 3: 
         game.get_computer_choice()
@@ -175,18 +158,12 @@ def play(choice_list):
             break
         else:
             continue
-    
-
-        
+     
     print("\n")
     time.sleep(1)
     print(f"User's score is {game.user_wins} and computer's score is {game.computer_wins}")
     pass
 
-
-        
-            
-  
 
 if __name__ == '__main__':
     choice_list = ['rock', 'paper', 'scissors','nothing']
