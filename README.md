@@ -4,7 +4,7 @@
 - The model is downloaded, which includes two files "keras_model.h5" and "labels.txt", the former containing the structure and parameters of the deep learning model built and the later housing information on the labels which are the classes the model was built to identify.
 
 ## Milestone 2
-- The dependencies for the project are installed in an environment called "my_env", making use of conda.
+- The dependencies for the project are installed in an environment called "cv_env", making use of conda.
 - Extra steps are required for apple M1/M2 laptops to enable tensorflow to run.  The steps [here](https://www.mrdbourke.com/setup-apple-m1-pro-and-m1-max-for-machine-learning-and-data-science/) are followed.
 
 ## Milestone 3
